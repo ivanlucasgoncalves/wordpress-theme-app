@@ -1,0 +1,16 @@
+{
+	"name": "ivan/wordpress-theme-app",
+	"authors": [
+		{
+			"name": "Ivan Lucas",
+			"email": "igoncalves@thecode.co"
+		}
+	],
+	"require": {
+		"johnpbloch/wordpress": "*",
+		"vlucas/phpdotenv": "^3.1"
+	},
+	"extra": {
+		"wordpress-install-dir": "wp"
+	}
+}

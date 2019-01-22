@@ -1,0 +1,42 @@
+{
+	"name": "wordpress-theme-react",
+	"version": "1.0.0",
+	"main": "index.js",
+	"scripts": {
+		"dev": "NODE_ENV=development webpack --watch --progress --mode development",
+		"prod": "NODE_ENV=production webpack --mode production"
+	},
+	"license": "MIT",
+	"devDependencies": {
+		"@babel/cli": "^7.2.0",
+		"@babel/core": "^7.2.0",
+		"@babel/plugin-proposal-class-properties": "^7.2.3",
+		"@babel/preset-env": "^7.2.0",
+		"@babel/preset-react": "^7.0.0",
+		"autoprefixer": "^9.4.2",
+		"babel-loader": "^8.0.4",
+		"browser-sync": "^2.26.3",
+		"browser-sync-webpack-plugin": "^2.2.2",
+		"clean-webpack-plugin": "^1.0.0",
+		"css-hot-loader": "^1.4.3",
+		"css-loader": "^2.0.1",
+		"mini-css-extract-plugin": "^0.5.0",
+		"node-sass": "^4.11.0",
+		"postcss-loader": "^3.0.0",
+		"redux-devtools-extension": "^2.13.7",
+		"sass-loader": "^7.1.0",
+		"url-loader": "^1.1.2",
+		"webpack": "^4.27.1",
+		"webpack-cli": "^3.1.2"
+	},
+	"dependencies": {
+		"react": "^16.6.3",
+		"react-dom": "^16.6.3",
+		"react-redux": "^6.0.0",
+		"react-router-dom": "^4.3.1",
+		"redux": "^4.0.1",
+		"redux-logger": "^3.0.6",
+		"redux-promise": "^0.6.0",
+		"redux-thunk": "^2.3.0"
+	}
+}
