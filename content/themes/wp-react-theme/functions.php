@@ -12,6 +12,8 @@
  */
 function wp_react_scripts()
 {
+  global $wp_query;
+
   if (!is_admin()) {
       wp_deregister_script('jquery');
       wp_deregister_script('wp-embed');
@@ -25,14 +27,14 @@ function wp_react_scripts()
 
   wp_scripts()->add_data('script-js', 'data', sprintf('var WPSettings = %s;', wp_json_encode(
       array(
-        'title' => get_bloginfo('name', 'display'),
-        'path' => $path,
         'URL' => array(
           'api' => esc_url_raw(get_rest_url(null, '/wp/v2')),
-          'root' => esc_url_raw($url),
+          'root' => esc_url_raw($url)
         )
       )
   )));
+
+
 }
 add_action('wp_enqueue_scripts', 'wp_react_scripts');
 

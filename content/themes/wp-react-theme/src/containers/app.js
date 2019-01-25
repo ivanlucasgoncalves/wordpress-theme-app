@@ -11,7 +11,7 @@ const App = ({ store }) => (
 		<Router>
 			<Switch>
 				<Route exact path='/' component={Home} />
-				<Route path='/blog' component={Blog} />
+				<Route exact path='/blog' component={Blog} />
 			</Switch>
 		</Router>
 	</Provider>
