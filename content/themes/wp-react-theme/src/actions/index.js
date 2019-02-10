@@ -1,12 +1,10 @@
 import axios from 'axios'
 
-// Action Creators
-export const fetchPosts = page => dispatch => {
-	const postsData = {
+export const fetchPosts = currentPage => dispatch => {
+	let postsData = {
 		per_page: 2,
-		page: page
+		page: currentPage
 	}
-	console.log('Number of page: ' + postsData.page)
 	dispatch({
 		type: 'FETCH_POSTS',
 		payload: axios
@@ -14,11 +12,18 @@ export const fetchPosts = page => dispatch => {
 				params: postsData
 			})
 			.then(res => {
-				const totalPages = res.headers['x-wp-totalpages']
-				console.log('Total of pages: ' + totalPages)
-
-				return res.data
+				return {
+					totalPages: parseInt(res.headers['x-wp-totalpages']),
+					data: res.data
+				}
 			})
 			.catch(error => console.log('An error occurred:', error.message))
+	})
+}
+
+export const setMorePosts = currentPage => dispatch => {
+	dispatch({
+		type: 'SET_MORE_POSTS',
+		currentPage
 	})
 }

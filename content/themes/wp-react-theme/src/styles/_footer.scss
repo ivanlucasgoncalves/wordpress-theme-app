@@ -1,0 +1,22 @@
+.footer {
+	@include bg-white;
+	padding: 20px 0;
+
+	&__navigation {
+		ul {
+			margin: 0;
+			padding: 0;
+			> li {
+				list-style: none;
+				@include media-breakpoint-up(md) {
+					margin-right: 25px;
+				}
+				a {
+					color: $black;
+					font-size: 0.8rem;
+					font-family: 'Project Soft', sans-serif;
+				}
+			}
+		}
+	}
+}

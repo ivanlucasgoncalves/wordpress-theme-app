@@ -1,0 +1,22 @@
+// Colors
+$white: #fff;
+$offWhite: #f9f9f9;
+$black: #231f20;
+$blue: #42b7e9;
+$navy: #082b4b;
+$orange: #f15c3b;
+$grey: #d2d3d3;
+$lightGrey: #cccccc;
+$lighterGrey: #e0e0e0;
+
+// Background Colors
+@mixin bg-black() {
+	&--bg-black {
+		background-color: $black;
+	}
+}
+@mixin bg-white() {
+	&--bg-white {
+		background-color: $white;
+	}
+}

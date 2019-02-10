@@ -1,16 +1,22 @@
+import { createBrowserHistory } from 'history'
 import { applyMiddleware, createStore } from 'redux'
+import { routerMiddleware } from 'connected-react-router'
 import thunk from 'redux-thunk'
 import promise from 'redux-promise-middleware'
 import logger from 'redux-logger'
 import { composeWithDevTools } from 'redux-devtools-extension'
 
 // Importing from reducers
-import reducer from './reducers'
+import rootReducer from './reducers'
 
-const middleware = [promise(), thunk]
+export const history = createBrowserHistory()
 
-export default createStore(
-	reducer,
+const middleware = [promise(), thunk, routerMiddleware(history)]
+
+const store = createStore(
+	rootReducer(history),
 	/* preloadedState, */
 	composeWithDevTools(applyMiddleware(...middleware, logger))
 )
+
+export default store

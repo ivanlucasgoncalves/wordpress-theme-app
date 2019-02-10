@@ -9,7 +9,7 @@ const devMode = process.env.NODE_ENV !== 'production'
 
 // Extract text from a bundle, or bundles, into a separate file
 const cssPlugin = new MiniCssExtractPlugin({
-	filename: 'css/[name].css',
+	filename: '[name].css',
 	chunkFilename: devMode ? 'css/[id].css' : 'css/[id].[hash].css'
 })
 
@@ -37,7 +37,7 @@ module.exports = {
 	entry: { app: './src/index.js' },
 	output: {
 		path: path.resolve(__dirname, 'dist'),
-		filename: 'js/[name].js'
+		filename: '[name].js'
 	},
 	module: {
 		rules: [
@@ -59,6 +59,18 @@ module.exports = {
 			{
 				test: /\.(pdf|jpg|png|gif|svg|ico)$/,
 				loader: 'url-loader'
+			},
+			{
+				test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+				use: [
+					{
+						loader: 'file-loader',
+						options: {
+							name: '[name].[ext]',
+							outputPath: './fonts/'
+						}
+					}
+				]
 			}
 		]
 	},

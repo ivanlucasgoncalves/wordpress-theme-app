@@ -1,23 +1,20 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Container, Row, Col } from 'reactstrap'
 
 const Home = () => (
-	<div className='page page-home'>
-		<header className='header'>
-			<Link to='/blog'>Blog</Link>
-			<p>
-				React app with <code>WordPress</code>
-			</p>
-			<a
-				className='header__link'
-				href='https://reactjs.org'
-				target='_blank'
-				rel='noopener noreferrer'
-			>
-				Learn React
-			</a>
-		</header>
-	</div>
+	<section className='page page--home'>
+		<main>
+			<Container>
+				<Row className='justify-content-md-center'>
+					<Col xs='12' md='8'>
+						<p>
+							React app with <code>WordPress</code>
+						</p>
+					</Col>
+				</Row>
+			</Container>
+		</main>
+	</section>
 )
 
 export default Home

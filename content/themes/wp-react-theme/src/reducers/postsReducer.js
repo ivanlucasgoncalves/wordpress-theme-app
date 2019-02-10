@@ -1,8 +1,18 @@
 const initialState = {
 	fetching: false,
 	posts: [],
-	page: 1,
-	total: 0
+	newPosts: [
+		{
+			title: {
+				rendered: 'New Awesome WordPress Posts'
+			},
+			excerpt: {
+				rendered: 'hahahaha....good!!!'
+			}
+		}
+	],
+	currentPage: 1,
+	totalPages: 0
 }
 
 const postsReducer = (state = initialState, action) => {
@@ -12,24 +22,25 @@ const postsReducer = (state = initialState, action) => {
 				...state,
 				fetching: true
 			}
-			break
 		case 'FETCH_POSTS_REJECTED':
 			return {
 				...state,
 				fetching: false
 			}
-			break
 		case 'FETCH_POSTS_FULFILLED':
 			return {
 				...state,
 				fetching: false,
-				page: state.page + 1,
-				posts: [...state.posts, ...action.payload]
+				posts: action.payload.data,
+				totalPages: action.payload.totalPages
 			}
-			break
+		case 'SET_MORE_POSTS':
+			return {
+				...state,
+				currentPage: state.currentPage + 1
+			}
 		default:
 			return state
-			break
 	}
 }
 
